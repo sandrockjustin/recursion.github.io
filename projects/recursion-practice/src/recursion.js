@@ -40,13 +40,12 @@ var sum = function(array, accum = 0) {
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array, accum = 0) {
-
-
-};
+var arraySum;
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+
+
 
 };
 
@@ -113,19 +112,27 @@ var range = function(x, y, output = []) {
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
 
+  // if the base number is raised to the power of 0, return 1
   if (exp === 0){
+
     return 1;
+
+  // if the base number is raised to the power of 1, return the base number  
   } else if (exp === 1){
     return base;
   }
 
+  // otherwise if the base number is greater than 1
   if (exp > 1){
 
+    // return the base number multiplied by the base number
+    // this is completed everytime until exponent is 0
     return base * exponent(base, exp - 1);
 
+  // if some bastard puts in a negative number
   } else {
 
-    return base / exponent(base, exp + 1);
+    return (1 / base) * exponent(base, exp + 1);
 
   }
 
@@ -136,6 +143,7 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+
 };
 
 // 9. Write a function that accepts a string a reverses it.
