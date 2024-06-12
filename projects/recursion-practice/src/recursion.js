@@ -142,8 +142,27 @@ var exponent = function(base, exp) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
+var powerOfTwo = function(n , output = false) {
 
+  // base case
+
+  // if n is eventually equal to 2, then it is a power of two
+  if (n === 2 || n === 1){
+    output = true
+    return output;
+  }
+
+  n = n ** 1/2
+  
+  if (n % 2 == 0){
+    
+    return powerOfTwo(n, output)
+    
+  } else {
+    
+    return output;
+    
+  }
 
 };
 
