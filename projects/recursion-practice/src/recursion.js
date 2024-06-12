@@ -150,6 +150,8 @@ var powerOfTwo = function(n , output = false) {
   if (n === 2 || n === 1){
     output = true
     return output;
+  } else if (n === 0){
+    return output;
   }
 
   n = n ** 1/2
