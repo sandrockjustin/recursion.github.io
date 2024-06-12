@@ -132,7 +132,7 @@ var exponent = function(base, exp) {
   // if some bastard puts in a negative number
   } else {
 
-    return (1 / base) * exponent(base, exp + 1);
+    return Number(((1 / base) * exponent(base, exp + 1)).toFixed(5));
 
   }
 
