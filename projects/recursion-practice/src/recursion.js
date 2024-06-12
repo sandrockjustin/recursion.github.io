@@ -220,7 +220,20 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x, y) {
+var multiply = function(x, y, output = 0) {
+
+  if (y === 0){
+    return output;
+  }
+  
+  output += x;
+
+  if (x < 0 && y < 0){
+    return multiply(-x, -y + 1, output);
+  }
+  
+  return multiply(x, y - 1, output);
+  
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
