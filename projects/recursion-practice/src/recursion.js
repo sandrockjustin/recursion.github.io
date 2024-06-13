@@ -45,7 +45,7 @@ var arraySum;
 // 4. Check if a number is even.
 var isEven = function(n) {
 
-
+  
 
 };
 
@@ -254,7 +254,26 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
+// compareStr is a function taking two string arguments
 var compareStr = function(str1, str2) {
+  
+  // if the first letter of str1 does not match the first letter of str2
+  if (str1[0] !== str2[0]){
+    
+    // return false
+    return false;
+  
+  // if str1 has a length of 0 and str2 has a length of 0
+  } else if (str1.length === 0 && str2.length === 0){
+    
+    // return true
+    return true;
+    
+  }
+    
+  // return a new slice of str1 & str2 to be tested
+  return compareStr(str1.slice(1), str2.slice(1));
+    
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
