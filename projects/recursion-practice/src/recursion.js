@@ -291,7 +291,25 @@ var createArray = function(str, output = []){
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function(array, n = 1) {
+  
+
+  // take the first value, put it at the end
+  // take the new first value, put it at the end - 1
+  // take the new first value, put it at the end - 2
+  // take the new first value, put it at the end - 3
+  
+  // how do we know when to end?
+  if (n === array.length){
+    return array;
+  }
+  
+  // how do we put it there?
+  array.splice(array.length - n, 0, array.shift());
+  
+  // what do we do for our recursive statement?
+  return reverseArr(array, n + 1);
+  
 };
 
 // 18. Create a new array with a given value and length.
