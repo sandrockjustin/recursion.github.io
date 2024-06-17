@@ -43,10 +43,22 @@ var sum = function(array, accum = 0) {
 var arraySum;
 
 // 4. Check if a number is even.
-var isEven = function(n) {
+var isEven = function(n, output = 1) {
 
+  if (n === 0 && output === 1){
+    return true;
+  } else if (n === 0 && output === (-1)){
+    return false;
+  }
   
-
+  output = output * (-1);
+  
+  if (n > 0){
+    return isEven(n - 1, output);
+  } else {
+    return isEven(n + 1, output);
+  }
+  
 };
 
 // 5. Sum all integers below a given integer.
@@ -397,9 +409,15 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n, index = 0) {
+var nthFibo = function(n, output = 0) {
 
+  if (n === 0){
+    return output;
+  }
 
+  output += output[output.length - 1];
+
+  return nthFibo(n - 1, output);
 
 };
 
