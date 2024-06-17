@@ -409,15 +409,40 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n, output = 0) {
-
+var nthFibo = function(n, output = 0, currentNumber = 0, previousNumber = -1) {
+    
   if (n === 0){
     return output;
+  } else if (n < 0){
+    return null;
   }
+  
 
-  output += output[output.length - 1];
+  if (currentNumber === 0){
+    
+    currentNumber++;
+    previousNumber++;
+    output = currentNumber;
+    return nthFibo(n - 1, output, currentNumber, previousNumber);
+    
+  } else if (previousNumber < 1){
+    
+    previousNumber++;
+    return nthFibo(n - 1, output, currentNumber, previousNumber);
+    
+  } else {
+  // our result is the sum of the current number and the previous number
+  output = currentNumber + previousNumber;
+  
+  // now we set the previousNumber equal to the currentNumber
+  previousNumber = currentNumber;
+  
+  // we also set the currentNumber equal to the sum
+  currentNumber = output;
 
-  return nthFibo(n - 1, output);
+  }
+  
+  return nthFibo(n - 1, output, currentNumber, previousNumber);
 
 };
 
